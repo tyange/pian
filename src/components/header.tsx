@@ -1,9 +1,9 @@
 export default function Header() {
   return (
     <header class="flex justify-center py-10">
-      <nav class="border shadow-md rounded-xl w-9/12 grid grid-cols-5 p-10">
-        <div>
-          <h2>pian</h2>
+      <nav class="w-9/12 grid grid-cols-5 items-center">
+        <div class="w-20">
+            <img class="w-full" src="/images/red-x-on-pickle.png" alt="pian 로고" />
         </div>
         <div>
           <ul class="flex gap-5">
