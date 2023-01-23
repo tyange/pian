@@ -1,12 +1,16 @@
 import { createResource } from "solid-js";
-import { useRouteData } from "@solidjs/router";
+import { useParams, useRouteData } from "@solidjs/router";
 import DefaultLayout from "~/components/default-layout";
 import { BurgerPageData } from "~/types/burger";
 import BurgerList from "~/components/burger-list";
 
 export function routeData() {
+  const params = useParams();
+
   const [data] = createResource<BurgerPageData>(async () => {
-    const response = await fetch(`http://127.0.0.1:3000/burger`);
+    const response = await fetch(
+      `http://127.0.0.1:3000/burger?page=${params.id}`
+    );
 
     return await response.json();
   });
@@ -14,7 +18,7 @@ export function routeData() {
   return { data };
 }
 
-export default function Home() {
+export default function BurgersPage() {
   const { data } = useRouteData<typeof routeData>();
 
   return (
